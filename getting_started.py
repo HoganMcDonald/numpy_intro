@@ -1,5 +1,7 @@
 # Basic sigmoid function using math library and int as input
 import math
+import time
+import numpy as np
 
 
 def basic_sigmoid(x):
@@ -8,9 +10,6 @@ def basic_sigmoid(x):
 
 
 print(basic_sigmoid(3))
-
-
-import numpy as np
 
 
 a = np.array([1, 2, 3])
@@ -62,3 +61,24 @@ print("image2vector(image) = " + str(image2vector(image)))
 
 
 # comparing for loops to vectorization
+a = np.random.rand(100000000)
+b = np.random.rand(100000000)
+
+
+tic = time.time()
+c = np.dot(a, b)
+toc = time.time()
+
+
+print('vectorized version: ' + str(1000 * (toc - tic)) + 'ms')
+
+
+z = 0
+tic = time.time()
+for i in range(100000000):
+    z += a[i] * b[i]
+toc = time.time()
+
+
+print('for loop version: ' + str(1000 * (toc - tic)) + 'ms')
+
