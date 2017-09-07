@@ -61,8 +61,8 @@ print("image2vector(image) = " + str(image2vector(image)))
 
 
 # comparing for loops to vectorization
-a = np.random.rand(100000000)
-b = np.random.rand(100000000)
+a = np.random.rand(1000000)
+b = np.random.rand(1000000)
 
 
 tic = time.time()
@@ -70,15 +70,14 @@ c = np.dot(a, b)
 toc = time.time()
 
 
-print('vectorized version: ' + str(1000 * (toc - tic)) + 'ms')
+print('c = ' + str(c) + ' vectorized version: ' + str(1000 * (toc - tic)) + 'ms')
 
 
-z = 0
+c = 0
 tic = time.time()
-for i in range(100000000):
-    z += a[i] * b[i]
+for i in range(1000000):
+    c += a[i] * b[i]
 toc = time.time()
 
 
-print('for loop version: ' + str(1000 * (toc - tic)) + 'ms')
-
+print('c = ' + str(c) + ' for loop version: ' + str(1000 * (toc - tic)) + 'ms')
