@@ -81,3 +81,8 @@ toc = time.time()
 
 
 print('c = ' + str(c) + ' for loop version: ' + str(1000 * (toc - tic)) + 'ms')
+
+A = np.random.randn(4,3)
+B = np.sum(A, axis = 1, keepdims = True)
+
+print(B.shape)
